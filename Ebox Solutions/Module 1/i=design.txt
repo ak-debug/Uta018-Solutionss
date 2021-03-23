@@ -1,0 +1,331 @@
+i-design for MODULE 1
+by - Akshit Kathuria
+---------------------------------------------------------------------
+Q1
+-------------------------------------------------------------------
+main.cpp
+------------------------------------------
+#include <iostream>
+#include <cstring>
+#include "Donor.cpp"
+using namespace std;
+
+int main(){
+   Donor A;
+   cout<<"Enter the donor details\n";
+   cout<<"Enter the name :\n";
+   cin>>A.name;
+     cout<<"Enter the age :\n";
+     cin>>A.age;
+     cout<<"Enter the height :\n";
+   cin>>A.height;
+     cout<<"Enter the weight :\n";
+   cin>>A.weight;
+     cout<<"Enter the gender :\n";
+   cin>>A.gender;
+     cout<<"Enter the blood group :";
+   cin>>A.bloodGroup;
+   A.display();
+   return 0;
+
+   }
+
+
+---------------------------
+DONOR.cpp
+------------------------------------
+
+#include <iostream>
+#include<stdio.h>
+#include <string>
+using namespace std;
+class Donor
+{
+    public:
+    string name;
+    int age;
+    float height;
+    float weight;
+    string gender;
+    string bloodGroup;
+
+    void display()
+    {
+        cout<<"\nDonor details are :"<<endl;
+        cout<<"Name :"<<name<<endl;
+        cout<<"Age :"<<age<<endl;
+        cout<<"height :"<<height<<endl;
+        cout<<"weight :"<<weight<<endl;
+        cout<<"Gender :"<<gender<<endl;
+        cout<<"Blood Group :"<<bloodGroup;
+    }
+};
+
+
+
+
+
+
+
+---------------------------------------------------------------
+Q2
+----------------------------------------------------------------
+main.cpp
+-------------------------------------------------------------
+#include <iostream>
+#include<string>
+#include<stdio.h>
+#include "ItemType.cpp"
+using namespace std;
+int main()
+{
+    ItemType A;
+    string name;
+    double costPerDay,deposit;
+	cout<<"Enter name:\n";
+    getline(cin,name);
+    cout<<"Enter deposit:\n";
+    cin>>deposit;
+    cout<<"Enter cost Per Day:\n";
+    cin>>costPerDay;
+    A.setName(name);
+    A.setDeposit(deposit);
+    A.setCostPerDay(costPerDay);
+    A.display();
+    
+}
+
+-----------------------------------
+itemtype.cpp
+----------------------------------
+
+#include <iostream>
+#include<stdio.h>
+#include<string>
+using namespace std;
+class ItemType
+{
+	private:
+string name;
+double deposit;
+double costPerDay;
+public:
+	//fill the code 
+void display()
+{
+cout<<"Itemtype details:"<<endl;
+cout<<"Name: "<<name<<endl;
+cout<<"Deposit: "<<deposit<<endl;
+cout<<"Cost Per Day: "<<costPerDay;
+	//fill the code 
+}
+ string getName()
+    {
+        return name;
+    }
+    
+ void setName(string itemname)
+    {
+       name=itemname;
+    }
+void setDeposit(double dep)
+{deposit=dep;}
+void setCostPerDay(double cos)
+{costPerDay=cos;}
+    
+};
+
+-----------------------------------------------------------
+
+
+Q3
+-------------------------------------------------
+main.cpp
+-------------------------------------------
+#include <iostream>
+#include<string>
+#include<stdio.h>
+#include "Donor.cpp"
+using namespace std;
+int main()
+{
+    int n,i;
+    cout<<"Enter the number of donors:"<<endl;
+    cin>>n;
+     Donor A[n];
+     for(i=0;i<n;i++){
+   cout<<"Enter the donor details"<<i+1<<endl;
+   cout<<"Enter the Name :\n";
+   cin>>A[i].name;
+     cout<<"Enter the Age :\n";
+     cin>>A[i].age;
+     cout<<"Enter the height :\n";
+   cin>>A[i].height;
+     cout<<"Enter the weight :\n";
+   cin>>A[i].weight;
+     cout<<"Enter the Gender :\n";
+   cin>>A[i].gender;
+     cout<<"Enter the Blood Group :\n";
+   cin>>A[i].bloodGroup;
+     }
+     cout<<"Donor details in the hospital database :\n";
+     for(i=0;i<n;i++){
+     cout<<"Donor"<<i+1<<endl;
+      A[i].display(); }
+      return 0;//Fill the code
+}
+
+---------------------------------------------
+donor.cpp
+------------------------------------------
+#include <iostream>
+#include<stdio.h>
+#include<string>
+using namespace std;
+class Donor
+{
+    public:
+    string name;
+    int age;
+    float height, weight;
+    string gender, bloodGroup;
+    
+    void display()
+    {    	 
+       
+        cout<<"Name :"<<name<<endl;
+        cout<<"Age :"<<age<<endl;
+        cout<<"height :"<<height<<endl;
+        cout<<"weight :"<<weight<<endl;
+        cout<<"Gender :"<<gender<<endl;
+        cout<<"Blood Group :"<<bloodGroup;
+    }
+};
+
+----------------------------------------------------------------------------------------------
+Q4
+------------------------------------------------------------------------------------------
+main.cpp
+------------------------------------
+#include <iostream>
+#include<string>
+#include<stdio.h>
+#include "Purchase.cpp"
+using namespace std;
+int main()
+{
+	int n,i,noi,ct=0;
+    string name;
+    float pi,t=0;
+    cout<<"Enter the Number of customers :"<<endl;
+    cin>>n;
+    Purchase cus[n];
+    for(i=0;i<n;i++)
+    {
+        cout<<"Enter the Name of the customer :\n";
+        cin>>name;
+        cus[i].setUserName(name);
+        cout<<"Enter the No of Items purchased :\n";
+        cin>>noi;
+        cus[i].setCountOfItems(noi);
+        cout<<"Enter the purchase amount :\n";
+        cin>>pi;
+        cus[i].setAmount(pi);
+        t=t+pi;
+        ct=ct+noi;
+        
+    }
+    cout<<"Purchase Details :"<<endl;
+    cus[0].display(cus,n);
+
+    return 0;
+    
+}
+
+-------------------------------------------------------------------
+purchase.cpp
+----------------------------------------------------------------
+
+#include <iostream>
+#include<stdio.h>
+#include<string>
+using namespace std;
+class Purchase
+{
+private:
+string userName;
+int countOfItems;  
+float amount;
+float static totalAmt;
+int static totalCountOfItems;
+
+public:
+
+string getUserName()
+{
+return userName;
+}
+void setUserName(string a)
+{
+this->userName=a;
+}
+
+
+int getCountOfItems()
+{
+return countOfItems;
+}
+void setCountOfItems(int b)
+{
+this->countOfItems=b;
+}
+
+
+
+float getAmount()
+{
+return amount;
+}
+void setAmount(float c)
+{
+this->amount=c;
+}
+
+float getTotalAmt()
+{
+return totalAmt;
+}
+void setTotalAmt(float d)
+{
+this->totalAmt=d;
+}
+
+
+
+
+int getTotalCountOfItems()
+{
+return totalCountOfItems;
+}
+void settotalCountOfItems(int e)
+{
+this->totalCountOfItems=e;
+}
+
+
+void display(Purchase obj[],int n){
+    int k=0,l=0;
+  
+    for(int i=0;i<n;i++){
+        cout<<"Customer "<<i+1<<" :"<<obj[i].userName<<endl;
+        cout<<"No of Items purchased :"<<obj[i].countOfItems<<endl;
+        cout<<"Purchase amount :"<<obj[i].amount<<endl;
+        k=k+obj[i].amount;
+        l=l+obj[i].countOfItems;
+}
+cout<<"Total Amount Received :"<<k<<endl;
+    cout<<"Total Number of Items sold :"<<l<<endl;
+}
+};
+
+-----------------------------------------------------------------------------------------------------------------------
